@@ -1,0 +1,60 @@
+html,body{
+    height: 100%
+}
+
+footer{
+  margin-top: 5%;
+  padding-top:3%;
+  background-color: #e0e0e0;
+  padding-bottom: 5%;
+  box-shadow: 10px #888888;
+}
+
+.square{
+
+  background-color: rgb(200, 63, 73);
+  height: 3px;
+  width: auto;
+
+}
+
+.info p{
+  color: black;
+  font-size: .9em;
+}
+
+.info ul{
+  list-style-type: none;
+  padding-left:0;
+}
+
+.info a{
+
+  text-decoration: none;
+  color: black;
+
+}
+
+.info a:hover{
+
+  text-decoration: none;
+  color: rgb(200, 63, 73);
+  font-weight: bold;
+
+
+}
+
+.footer img{
+  margin-top: 5%;
+  margin-left: 20%;
+  height: 100px;
+  width: 100px;
+}
+
+#site-header a{
+  color: black;
+}
+
+#site-header a:hover{
+  color: rgb(200, 63, 73);
+}

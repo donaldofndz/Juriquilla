@@ -15,6 +15,8 @@
 	<link href="<?= base_url('assets/css/style.css') ?>" rel="stylesheet">
 
 
+
+
 </head>
 <body>
 
@@ -28,7 +30,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="<?= base_url() ?>">Juriquilla</a>
+					<a class="navbar-brand" href="<?= base_url() ?>"> Juriquilla</a>
 				</div>
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">

@@ -21,7 +21,7 @@ class User extends CI_Controller {
 		$this->load->library(array('session'));
 		$this->load->helper(array('url'));
 		$this->load->model('user_model');
-		//$this->load->model('bin_model');
+
 
 	}
 
@@ -223,9 +223,49 @@ class User extends CI_Controller {
 
 	}
 
+
+
+	public function dealer(){
+
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+			$this->load->view('header');
+			$this->load->view('general/dealer');
+			$this->load->view('footer');
+		}else {
+
+			redirect('/');
+
+		}
+
+
+	}
+
 	public function generalBinnacle(){
 
-				$data = new stdClass();
+
+				if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+					/*
+					$limit = $this->input->post('limit');
+
+					$this->$bin_model->show_bin($limit);
+					*/
+
+					$this->load->model('bin_model');
+					$data ['query'] = $this->bin_model->show_bin();
+
+					$this->load->view('header');
+					$this->load->view('general/general_bin', $data);
+					$this->load->view('footer');
+
+				}else {
+
+					// there user was not logged in, we cannot logged him out,
+					// redirect him to site root
+					redirect('/');
+
+				}
 
 
 
