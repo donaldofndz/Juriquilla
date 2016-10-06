@@ -16,9 +16,10 @@ class Bin_model extends CI_Model
 
 	}
 
-  public function show_bin(){
-    $this->db->limit('10');
-    $this->db->order_by('folio', 'DESC');
+  public function show_bin($limit,$display){
+    $this->db->limit($limit);
+    $this->db->order_by('folio',$display);
+    //DESC, ASC
     $query = $this->db->select('*')->from('Bitacora')->get();
     //
 

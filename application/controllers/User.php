@@ -243,17 +243,16 @@ class User extends CI_Controller {
 
 	public function generalBinnacle(){
 
+				$this->load->helper('form');
 
 				if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
-					/*
-					$limit = $this->input->post('limit');
 
-					$this->$bin_model->show_bin($limit);
-					*/
+					$limit = $this->input->post('limit');
+					$display = $this->input->post('display');
 
 					$this->load->model('bin_model');
-					$data ['query'] = $this->bin_model->show_bin();
+					$data ['query'] = $this->bin_model->show_bin($limit,$display);
 
 					$this->load->view('header');
 					$this->load->view('general/general_bin', $data);
@@ -266,8 +265,6 @@ class User extends CI_Controller {
 					redirect('/');
 
 				}
-
-
 
 
 	}

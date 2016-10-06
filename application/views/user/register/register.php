@@ -89,6 +89,7 @@
 					<input type="submit" class="btn btn-default" value="Register">
 				</div>
 			</form>
+
 		</div>
 	</div><!-- .row -->
 </div><!-- .container -->

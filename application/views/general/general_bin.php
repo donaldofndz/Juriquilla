@@ -1,4 +1,33 @@
 <div class="container">
+
+  <?= form_open() ?>
+    <div class="form-group">
+      <label for="name">Numero de Registros a mostrar</label>
+      <!--<input type="text" class="form-control" id="limit" name="limit" placeholder="Da un numero">-->
+      <br>
+      <select id="limit" name="limit">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+        <option value="30">30</option>
+        <option value="40">40</option>
+        <option value="50">Todos</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="name">Fecha</label>
+        <br>
+        <select id="display" name="display">
+          <option value="ASC">Ascendente </option>
+          <option value="DESC">Descendente</option>
+        </select>
+
+    </div>
+    <div class="form-group">
+      <input type="submit" class="btn btn-warning btn-block" value="Mostrar">
+    </div>
+  </form>
+
   <table class="table table-condensed">
     <tr>
       <td> <strong> Folio</strong></td>

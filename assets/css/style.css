@@ -10,6 +10,14 @@ footer{
   box-shadow: 10px #888888;
 }
 
+select{
+    background: #fff; !important;
+    color:#000;
+
+}
+
+
+
 .square{
 
   background-color: rgb(200, 63, 73);
