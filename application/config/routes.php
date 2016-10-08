@@ -53,6 +53,7 @@ $route['register'] = 'user/register';
 $route['login'] = 'user/login';
 $route['logout'] = 'user/logout';
 $route['generalBinnacle'] = 'user/generalBinnacle';
+$route['dealer'] = 'user/dealer';
 
 $route['default_controller'] = 'user/login';
 $route['404_override'] = '';

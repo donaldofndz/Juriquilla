@@ -5,7 +5,7 @@
 			<div class="page-header">
 				<h1> Haz hecho Logout!</h1>
 			</div>
-			<p>Haz hecho logout</p>
+			<p>Vuelve a ingresar para consultar datos</p>
 		</div>
 	</div><!-- .row -->
 </div><!-- .container -->

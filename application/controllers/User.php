@@ -129,6 +129,13 @@ class User extends CI_Controller {
 	 */
 	public function login() {
 
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+			// there user was not logged in, we cannot logged him out,
+			// redirect him to site root
+				redirect('/user/dealer');
+			}
+
 		// create the data object
 		$data = new stdClass();
 
@@ -164,6 +171,7 @@ class User extends CI_Controller {
 				$_SESSION['user_id']      = (int)$user->id;
 				$_SESSION['username']     = (string)$user->username;
 				$_SESSION['user_register']= (int)$user->user_register;
+				$_SESSION['user_type']	  = (int)$user->user_type;
 				$_SESSION['name']					= (string)$user->name;
 				$_SESSION['logged_in']    = (bool)true;
 				$_SESSION['is_confirmed'] = (bool)$user->is_confirmed;
@@ -171,7 +179,7 @@ class User extends CI_Controller {
 
 				// user login ok
 				$this->load->view('header');
-				$this->load->view('user/login/login_success', $data);
+				$this->load->view('general/dealer', $data);
 				$this->load->view('footer');
 
 			} else {
