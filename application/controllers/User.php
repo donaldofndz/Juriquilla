@@ -235,10 +235,14 @@ class User extends CI_Controller {
 
 	public function dealer(){
 
+		$this->load->model('bin_model');
+		$data ['query'] = $this->bin_model->show_bases();
+
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
 			$this->load->view('header');
 			$this->load->view('general/dealer');
+			$this->load->view('general/bases',$data);
 			$this->load->view('footer');
 		}else {
 
@@ -256,11 +260,12 @@ class User extends CI_Controller {
 				if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
 
-					$limit = $this->input->post('limit');
+					$limit = $this->input->post('limit') | 5;
 					$display = $this->input->post('display');
 
 					$this->load->model('bin_model');
 					$data ['query'] = $this->bin_model->show_bin($limit,$display);
+					$data ['queryOtra'] = $this->bin_model->show_bin_other($limit,$display);
 
 					$this->load->view('header');
 					$this->load->view('general/general_bin', $data);

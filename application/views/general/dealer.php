@@ -7,7 +7,7 @@
 
 
   <?php if ($_SESSION['user_type'] == 3 || ($_SESSION['user_type'] == 4)): ?>
-    <div class="bs-callout bs-callout-default">
+    <div class="bs-callout bs-callout-success">
       <h4>Bitacora del sistema</h4>
         <div class="row">
             <div class="col-md-8">
@@ -26,6 +26,3 @@
       </div>
     </div>
   <?php endif; ?>
-
-
-</div>

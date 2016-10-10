@@ -16,6 +16,12 @@ class Bin_model extends CI_Model
 
 	}
 
+  /**
+  * @show_bin no se usa en produccion
+  * @limit, display
+  *
+  */
+
   public function show_bin($limit,$display){
     $this->db->limit($limit);
     $this->db->order_by('folio',$display);
@@ -25,6 +31,26 @@ class Bin_model extends CI_Model
 
     return $query->result();
 
+  }
+
+  public function show_bin_other($limit,$display){
+    $this->db->limit($limit);
+    $this->db->order_by('folio',$display);
+    $this->db->select('*')->from('Bitacora');
+    $this->db->join('catEvento', 'Bitacora.idEvento = catEvento.idEvento');
+    $query = $this->db->get();
+
+    return $query->result();
+
+  }
+
+
+
+  public function show_bases(){
+
+
+    $query = $this->db->select('Base')->from('Bases')->get();
+    return $query->result();
 
   }
 
