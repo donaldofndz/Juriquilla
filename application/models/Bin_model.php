@@ -44,13 +44,14 @@ class Bin_model extends CI_Model
 
   }
 
-
-
   public function show_bases(){
-
 
     $query = $this->db->select('Base')->from('Bases')->get();
     return $query->result();
+
+  }
+
+  public function show_description(){
 
   }
 

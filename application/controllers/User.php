@@ -38,6 +38,11 @@ class User extends CI_Controller {
 
 	public function register() {
 
+
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+			if ($_SESSION['user_register'] == 1){
+
+
 		/*
 		La clase stdClass de PHP es una clase genérica vacía,
 		similar a la clase Object de Java o el object de Python.
@@ -62,18 +67,6 @@ class User extends CI_Controller {
 		$this->form_validation->set_rules('user_type','user_type','max_length[1]');
 		$this->form_validation->set_rules('user_register','user_register','max_length[1]');
 
-		/*
-
-
-		if (la validacion no datos funciona)
-			regresa mensaje en rojo
-		else
-			Manda variables por POST
-			if (crear usuario)
-				crea el usuario, regresa página de exito
-			else
-				nunca debe pasar
-		*/
 
 		if ($this->form_validation->run() === false) {
 
@@ -115,7 +108,15 @@ class User extends CI_Controller {
 
 		}
 
+			}
+		}else {
+
+			// there user was not logged in, we cannot logged him out,
+			// redirect him to site root
+			redirect('/');
+
 	}
+}
 
 
 
@@ -178,9 +179,8 @@ class User extends CI_Controller {
 				$_SESSION['is_admin']     = (bool)$user->is_admin;
 
 				// user login ok
-				$this->load->view('header');
-				$this->load->view('general/dealer', $data);
-				$this->load->view('footer');
+
+				$this->dealer();
 
 			} else {
 
@@ -236,7 +236,10 @@ class User extends CI_Controller {
 	public function dealer(){
 
 		$this->load->model('bin_model');
+		$this->load->model('Dispos_model');
 		$data ['query'] = $this->bin_model->show_bases();
+		$data ['queryOtra'] = $this->Dispos_model->prueba();
+
 
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
@@ -244,6 +247,7 @@ class User extends CI_Controller {
 			$this->load->view('general/dealer');
 			$this->load->view('general/bases',$data);
 			$this->load->view('footer');
+
 		}else {
 
 			redirect('/');
