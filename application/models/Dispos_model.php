@@ -17,7 +17,7 @@ class Dispos_model extends CI_Model
 
   }
 
-  public function prueba(){
+  public function show_dispos(){
 
     $aux = $this->db->select('Dispositivo')->from('Bases')->get();
     //return $aux->result();

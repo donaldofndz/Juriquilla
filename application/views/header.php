@@ -36,7 +36,7 @@
 					<ul class="nav navbar-nav navbar-right">
 
 						<?php if (isset($_SESSION['username']) && $_SESSION['logged_in'] === true) : ?>
-							<li><a href="<?= base_url()?>/dealer">Principal</a></li>
+							<li><a href="<?= base_url()?>dealer">Principal</a></li>
 							<li><a href="<?= base_url('logout') ?>">Logout</a></li>
 						<?php if ($_SESSION['user_register'] == 0): ?>
 							<li> <a href="#"><?php echo "Hola " . $_SESSION['name'] . " !" ?></a></li>

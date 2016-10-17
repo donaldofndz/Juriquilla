@@ -238,7 +238,9 @@ class User extends CI_Controller {
 		$this->load->model('bin_model');
 		$this->load->model('Dispos_model');
 		$data ['query'] = $this->bin_model->show_bases();
-		$data ['queryOtra'] = $this->Dispos_model->prueba();
+		$data ['queryDispositivos'] = $this->bin_model->show_dispositvos();
+		$data ['queryDescripcion'] = $this->Dispos_model->show_dispos();
+
 
 
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
@@ -279,10 +281,44 @@ class User extends CI_Controller {
 
 					// there user was not logged in, we cannot logged him out,
 					// redirect him to site root
-					redirect('/');
+					$this->login();
 
 				}
 
+
+	}
+
+
+	public function graphics($database = NULL){
+
+		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
+
+			if ($database == NULL) {
+
+				$this->load->view('header');
+				$this->load->view('graphics/no_base');
+				$this->load->view('footer');
+
+
+			}else {
+
+				$data['base'] = $database;
+
+				$this->load->view('header');
+				$this->load->view('graphics/general_graphs',$data);
+				$this->load->view('footer');
+
+			}
+
+
+
+		}else {
+
+			// there user was not logged in, we cannot logged him out,
+			// redirect him to site root
+			$this->login();
+
+		}
 
 	}
 

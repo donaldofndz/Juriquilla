@@ -51,7 +51,14 @@ class Bin_model extends CI_Model
 
   }
 
-  public function show_description(){
+  public function show_dispositvos(){
+    $query = $this->db->select('Dispositivo')->from('Bases')->get();
+    $auxiliarDispositivo = $query->result();
+
+    foreach ($auxiliarDispositivo as $key) {
+      $arregloDispositvo[] = $key->Dispositivo;
+    }
+    return $arregloDispositvo;
 
   }
 
