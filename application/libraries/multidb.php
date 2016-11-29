@@ -15,9 +15,6 @@
 
     }
 
-    // Add more functions two use commonly.
-    public function save(){
 
-    }
 
 }

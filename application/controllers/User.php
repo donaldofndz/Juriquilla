@@ -291,6 +291,8 @@ class User extends CI_Controller {
 
 	public function graphics($database = NULL){
 
+		$this->load->model('graph_model');
+
 		if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] === true) {
 
 			if ($database == NULL) {
@@ -303,8 +305,12 @@ class User extends CI_Controller {
 			}else {
 
 				$data['base'] = $database;
+				$data['result'] = $this->graph_model->graph_arr($database,1);
+				$data['result2'] = $this->graph_model->graph_arr($database,2);
+				$data['result3'] = $this->graph_model->graph_arr($database,3);
 
 				$this->load->view('header');
+				$this->load->view('graphics/menuGraphs');
 				$this->load->view('graphics/general_graphs',$data);
 				$this->load->view('footer');
 

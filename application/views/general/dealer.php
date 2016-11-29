@@ -2,10 +2,6 @@
 
   <div class="container">
 
-
-
-
-
   <?php if ($_SESSION['user_type'] == 3 || ($_SESSION['user_type'] == 4)): ?>
     <div class="bs-callout bs-callout-success">
       <h4>Bitacora del sistema</h4>
@@ -17,11 +13,7 @@
 
             </div>
             <div class="col-md-offset-2 col-md-2">
-              <div class="btn-group">
-                <button type="button" class="btn btn-default">
-                  <a class="botonlink" href="<?= base_url()?>/generalBinnacle">Ver Bitacora</a>
-                </button>
-            </div>
+                  <a class="botonlink" href="<?= base_url()?>generalBinnacle">Ver Bitacora</a>
         </div>
       </div>
     </div>

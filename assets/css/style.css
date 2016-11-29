@@ -2,6 +2,14 @@ html,body{
     height: 100%
 }
 
+button:focus {
+  outline: none;
+}
+
+a{
+  text-decoration: none;
+}
+
 footer{
   margin-top: 5%;
   padding-top:3%;
@@ -29,6 +37,9 @@ select{
   text-decoration: none;
 
 }
+
+
+
 
 
 .square{
@@ -96,6 +107,7 @@ select{
     border-left-width: 5px;
     border-radius: 3px;
 }
+
 
 .bs-callout h4 {
     margin-top: 0;
