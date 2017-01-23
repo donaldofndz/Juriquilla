@@ -90,7 +90,7 @@ class Graph_model extends CI_Model
     $strNombresVariable = implode(",",$arregloNombresVariable);
 
     $valoresVariable = $this->multidb->$base->query('SELECT horaLocal, ' . $strNombresVariable
-                                . ' FROM Muestras LIMIT 10;')->result();
+                                . ' FROM Muestras LIMIT 100;')->result();
 
     for ($i=0; $i < sizeof($arregloNombresVariable); $i++) {
       //$casValoresVariable[] = $arregloNombresVariable[$i];
@@ -136,6 +136,23 @@ class Graph_model extends CI_Model
 
   }
 
+
+public function numero_disp($base){
+
+  $sql = "SELECT Ncto1, Ncto2, Ncto3 FROM Dispositivo";
+
+  $query = $query = $this->multidb->$base->query($sql)->result();
+
+  foreach ($query as $key) {
+    $nombreDispos[] = $key->Ncto1;
+    $nombreDispos[] = $key->Ncto2;
+    $nombreDispos[] = $key->Ncto3;
+  }
+
+
+  return $nombreDispos;
+
+}
 
 
 

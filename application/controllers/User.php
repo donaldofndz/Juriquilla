@@ -289,7 +289,7 @@ class User extends CI_Controller {
 	}
 
 
-	public function graphics($database = NULL){
+	public function graphics($database = NULL,$primero = 1,$segundo = 2,$tercero = 3){
 
 		$this->load->model('graph_model');
 
@@ -305,12 +305,13 @@ class User extends CI_Controller {
 			}else {
 
 				$data['base'] = $database;
-				$data['result'] = $this->graph_model->graph_arr($database,1);
-				$data['result2'] = $this->graph_model->graph_arr($database,2);
-				$data['result3'] = $this->graph_model->graph_arr($database,3);
+				$data['menu'] = $this->graph_model->numero_disp($database);
+				$data['result'] = $this->graph_model->graph_arr($database,$primero);
+				$data['result2'] = $this->graph_model->graph_arr($database,$segundo);
+				$data['result3'] = $this->graph_model->graph_arr($database,$tercero);
 
 				$this->load->view('header');
-				$this->load->view('graphics/menuGraphs');
+				$this->load->view('graphics/menuGraphs',$data);
 				$this->load->view('graphics/general_graphs',$data);
 				$this->load->view('footer');
 

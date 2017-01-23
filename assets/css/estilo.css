@@ -1,0 +1,36 @@
+.div_menu_graph{
+
+  margin-top: 3%;
+  border: 1px solid #eee;
+  border-radius: 5px;
+
+}
+
+.menu_graf{
+
+  list-style-type: none;
+  margin: 0;
+  padding-left:0;
+  overflow: hidden;
+  background-color: #fff;
+
+}
+
+.menu_graf li{
+
+  float: left;
+
+}
+
+.menu_graf li a {
+    display: block;
+    color: #000;
+    text-align: center;
+    padding:15px;
+    padding-left:10px;
+    text-decoration: none;
+}
+
+.menu_graf li a:hover {
+    background-color: #f2f2f2;
+}

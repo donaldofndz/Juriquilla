@@ -1,5 +1,5 @@
 
-<?php echo $base; ?>
+
 
 <!-- Muestra de graficas -->
 <div class="container">
